@@ -27,7 +27,7 @@ The system uses `try-catch` blocks to handle various errors:
 - **RuntimeException**:
   - Thrown when a book is not found or has insufficient stock.
 - **IllegalArgumentException**:
-  - Thrown for unsupported book types or invalid email addresses.
+  - Thrown for unsupported book types or empty address or mail.
 
 ### Usage of Polymorphism
 Polymorphism is achieved through the `Book` abstract class and its subclasses. The `Library` class interacts with `Book` objects without knowing their specific types, enabling flexible and reusable code.

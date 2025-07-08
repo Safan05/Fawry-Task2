@@ -73,6 +73,9 @@ class PaperBook extends Book implements Shipable {
     }
     @Override
     public double ShipBook(String address,int Quantity) {
+        if (address == null || address.isEmpty()) {
+            throw new IllegalArgumentException("Address cannot be null or empty.");
+        }
             decrementStock(Quantity);
             System.out.println("Shipped book "+this.getTitle()+" with quantity "+ Quantity+ " to: " + address);
             return this.getPrice()*Quantity;
@@ -96,7 +99,7 @@ class EBook extends Book implements Mailable {
         if (email == null || email.isEmpty()) {
             throw new IllegalArgumentException("Email cannot be null or empty.");
         }
-        System.out.println("EBook "+this.getTitle()+" sent to: " + email+ " with quantity "+ Quantity);
+        System.out.println("EBook "+this.getTitle()+" with type "+this.getFileType()+" sent to: " + email+ " with quantity "+ Quantity);
         return this.getPrice()*Quantity;
     }
 }

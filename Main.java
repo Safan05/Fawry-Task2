@@ -40,5 +40,15 @@ public class Main {
         // Try to purchase a book with insufficient stock
         purchaseBook(library,"1234567890", 20, "123 Main St, City, Country");
 
+        // remove outdated books
+        library.removeOutdatedBooks(3); // now it will remove books published before 2022 so only ebook2 will remain
+        System.out.println("Total books in library after removing outdated books: " + library.getTotalBooks());
+
+        // try to purchase a removed book
+        purchaseBook(library,"1122334455", 1, "789 Oak St, City, Country");
+
+        // try to purchase the remaining book
+        purchaseBook(library,"5566778899", 1, "789 Oak St, City, Country");
+
     }
 }
